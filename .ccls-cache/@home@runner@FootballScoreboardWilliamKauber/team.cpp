@@ -1,4 +1,6 @@
 //Team Member Functions
+#include "team.h"
+using namespace std; 
 
 void Team::setName(string n);
 {
