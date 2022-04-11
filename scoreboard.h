@@ -14,12 +14,12 @@ class Scoreboard
     Team Visitor; 
 
   public: 
-    void setQuarter(int);
-    void setDown(int);
-    void setToGo(int);
-    void setClock(double);
-    void setPos(bool);
-    void setHome(Team);
+    void setQuarter(int q); { Quarter = q; }
+    void setDown(int d); { Down = d; }
+    void setToGo(int tg); { ToGo = tg;}
+    void setClock(double c); { Clock = c;}
+    void setPos(bool p); { Pos = p; }
+    void setHome(Team); 
     void setVisitor(Team);
     int getQuarter();
     int getDown();
