@@ -28,6 +28,7 @@ class Scoreboard
     bool getPos();
     Team getHome();
     Team getVisitor();
+    void showScoreboard();
 
 };
 #endif

@@ -16,7 +16,7 @@ class Team
     void setHome_City(string);
     void setHome_Status(bool);
     void setScore(int);
-    void setTime_count(int);
+    void setTimeout_count(int);
     string getName();
     string getCoach_Name();
     string getHome_City();
