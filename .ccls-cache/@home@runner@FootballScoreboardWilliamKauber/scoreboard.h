@@ -1,6 +1,7 @@
 //Scoreboard Class Definition 
 #ifndef SCOREBOARD_H
 #define SCOREBOARD_H
+#include "team.h"
 
 class Scoreboard 
 {
@@ -19,15 +20,16 @@ class Scoreboard
     void setToGo(int tg); { ToGo = tg;}
     void setClock(double c); { Clock = c;}
     void setPos(bool p); { Pos = p; }
-    void setHome(Team); 
-    void setVisitor(Team);
-    int getQuarter();
-    int getDown();
-    int getToGo();
-    double getClock();
-    bool getPos();
-    Team getHome();
-    Team getVisitor();
+    void setHome(Team h); {Home = h;}
+    void setVisitor(Team v); {v = visitor;}
+
+    int getQuarter(); const {return Quarter;}
+    int getDown(); const {return Down;}
+    int getToGo(); const {return ToGo;}
+    double getClock(); const {return Clock;}
+    bool getPos(); const {return Pos;}
+    Team getHome(); const {return Home;}
+    Team getVisitor(); const {return Visitor}
     void showScoreboard();
 
 };
