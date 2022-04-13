@@ -69,20 +69,21 @@ int main()
         cout << "\nWho is the home team: 1 = T1, 2=T2: "; 
         homeTeamQuestion = validateInt(homeTeamQuestion); 
        // cin >> homeTeamQuestion; 
-        if(homeTeamQuestion == 1)
-        {
-          tOne.setHome_Status(true); 
-          tTwo.setHome_Status(false); 
-        }
-        else if(homeTeamQuestion == 2)
-        {
-          tOne.setHome_Status(false); 
-          tTwo.setHome_Status(true);
-        else
-        {
-          cout << "\nInvalid Input!" << endl;
-          sleep(2); 
-        }
+          if(homeTeamQuestion == 1)
+          {
+            tOne.setHome_Status(true); 
+            tTwo.setHome_Status(false); 
+          }
+          else if(homeTeamQuestion == 2)
+          {
+            tOne.setHome_Status(false); 
+            tTwo.setHome_Status(true);
+          }
+          else
+          {
+            cout << "\nInvalid Input!" << endl;
+            sleep(2); 
+          }
       }
       else if(userChoice == "E" || userChoice == "e")
       {
