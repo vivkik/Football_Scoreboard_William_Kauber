@@ -17,16 +17,6 @@ class Team
   
   public:
 
-    Team() // Default constructor 
-      {
-        Name = "Team 1";
-        Coach_Name = "Coach";
-        Home_City = "Townplace";
-        Home_Status = true;
-        Score = 0;
-        Timeout_Count = 0;
-      }
-
     //Setter Member Functions 
     void setName(string n) 
       { Name = n;}
@@ -80,6 +70,13 @@ class Scoreboard
     Team Visitor; 
 
   public: 
+    Scoreboard()
+      {
+        Quarter = 0;
+        Down = 0;
+        ToGo = 0;
+        Clock =0.0;
+      }
     void setQuarter(int q) 
       { Quarter = q; }
     void setDown(int d) 
@@ -111,6 +108,9 @@ class Scoreboard
       const {return Visitor;}
     void showScoreboard()
       {
+        
+        cout << "Home Team: " << Home.getHome_City() <<" " <<     Home.getName() << " Coach: " << Home.getCoach_Name()<<endl;
+        cout << "Visiting Team: " << Visitor.getHome_City() << " "<< Visitor.getName() << " Coach: " << Visitor.getCoach_Name()<< endl;
         
       }
 

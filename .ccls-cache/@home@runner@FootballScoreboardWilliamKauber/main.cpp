@@ -18,16 +18,28 @@ int main()
   string newCoachName = ""; 
   int homeTeamQuestion = 0; 
   int newScore = 0; 
+  int newQuarter = 0;
+  int newDown = 0;
+  int newToGo = 0; 
+  double newClock = 0.0;
+
+  tOne.setHome_Status(true); //tOne is the Home Team now   
+
+  //add some initial data to s
+  s.setHome(tOne); 
+  s.setVisitor(tTwo); 
+  
+ 
   
   do 
   {
       system("clear"); //clear the screen of previous content 
       s.showScoreboard(); //show the current scoreboard data
       //menu choices 
-      cout << "A = Update Home Team Status" << endl; 
+      cout << "A = Update Home Team Name" << endl; 
       cout << "B = Update Home Team Score" << endl; 
-      cout << "C = Update Home Name" << endl; 
-      cout << "D = Update Home Coach" << endl; 
+      cout << "C = Update Home Coach" << endl; 
+      cout << "D = Update Home Status" << endl; 
       cout<< "E = Update Visiting Team Score" << endl;
       cout<<"F = Update Visiting Team Name" << endl;
       cout<<"G = Update Visiting Team Coach" << endl;
@@ -40,7 +52,7 @@ int main()
     
       cin >> userChoice; 
 
-      if(userChoice == "A" || userChoice == "a")
+      if(userChoice == "A" || userChoice == "a")//Update Home Team Score 
       {
         cout << "****Update Home Team Name module*** " << endl; 
         cout << "\nPlease enter a new name for the home team: ";
@@ -52,7 +64,7 @@ int main()
         cout << "\nUpdate Home Score Module****" << endl; 
         cout << "\nPlease enter a new score for the home team: "; 
         cin >> newScore; 
-        tOne.setScore(newScore);  //set the new score for tOne        
+        tOne.setScore(newScore);         
       }
 
       else if(userChoice == "C" || userChoice == "c")
@@ -92,23 +104,57 @@ int main()
         cout << "\nPlease enter a new name for the visitor team: ";
         cin >> newName; 
        
-        tTwo.setName(newName); //set tOne's data to the new desired name
+        tTwo.setName(newName); 
       }
       else if(userChoice == "F" || userChoice == "f")
       {
         cout << "\nUpdate Visitor Score Module****" << endl; 
         cout << "\nPlease enter a new score for the visitor team: "; 
         cin >> newScore; 
-        tTwo.setScore(newScore);  //set the new score for tTwo        
+        tTwo.setScore(newScore);         
       }
       else if(userChoice == "G" || userChoice == "g")
       {
           cout << "\nUpdate Visitor Coach Module****" << endl; 
           cout << "\nPlease enter the visitor coach Name: "; 
           cin >> newCoachName; 
-          tTwo.setCoach_Name(newCoachName); 
+        tTwo.setCoach_Name(newCoachName); 
       }
-
+      else if(userChoice == "H" || userChoice == "h")
+      {
+        cout << "\n****Update Quarter Module****" << endl;
+        cout << "\n Please enter the Quarter: ";
+        cin >> newQuarter;
+          if (newQuarter >0 && newQuarter < 5)
+          {
+            s.setQuarter(newQuarter);
+          }
+          else
+          {
+            cout << "Invalid Input!" <<endl;
+          }
+      }
+      else if(userChoice =="I" || userChoice == "i")
+      {
+        cout << "\n****Update Down Count Module****"<< endl;
+        cout << "\n Please Enter the Down Count: ";
+        cin >> newDown; 
+        s.setDown(newDown);
+      }
+      else if (userChoice == "J" || userChoice == "j")
+      {
+        cout << "\n****Update To Go Count Module****"<< endl;
+        cout << "\n Please enter the To Go count: ";
+        cin >> newToGo;
+        s.setToGo(newToGo);
+      }
+      else if (userChoice == "K" || userChoice == "k")
+      {
+        cout << "\n****Update Clock Module****"<<endl;
+        cout << "Please enter the new time: ";
+        cin >> newClock;
+        s.setClock(newClock);
+      }
       else if(userChoice == "X" || userChoice == "x")
       {
         cout << "Exit chosen." << endl; 
@@ -124,8 +170,11 @@ int main()
 
   
   }while(userChoice != "X" && userChoice != "x");
+
+
   
   return 0;
+
 
 }
 
