@@ -64,7 +64,8 @@ class Scoreboard
     int Quarter;
     int Down; 
     int ToGo;
-    double Clock;
+    int ClockSec;
+    int ClockMin;
     bool Pos; // Posession 
     Team H; 
     Team V; 
@@ -72,10 +73,12 @@ class Scoreboard
   public: 
     Scoreboard()
       {
-        Quarter = 0;
+        Quarter = 1;
         Down = 0;
         ToGo = 0;
-        Clock =0.0;
+        ClockMin = 11;
+        ClockSec = 11;
+        Pos = true; 
         H.setName("Cowboys");
         H.setHome_City("Dallas");
         H.setScore(0);
@@ -96,8 +99,10 @@ class Scoreboard
       { Down = d; }
     void setToGo(int tg) 
       { ToGo = tg;}
-    void setClock(double c) 
-      { Clock = c;}
+    void setClockMin(int cm) 
+      { ClockMin = cm;}
+    void setClockSec(int cs)
+{      ClockSec = cs;}
     void setPos(bool p) 
       { Pos = p; }
     void setH(Team h)
@@ -111,8 +116,10 @@ class Scoreboard
       {return Down;}
     int getToGo() const 
       {return ToGo;}
-    double getClock() const
-      {return Clock;}
+    int getClockMin() const
+      {return ClockMin;}
+    int getClockSec() const  
+      {return ClockSec;}
     bool getPos() const 
       {return Pos;}
     Team getH() 
@@ -122,11 +129,18 @@ class Scoreboard
     void showScoreboard()
       {
         
-        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << " Coach: " << H.getCoach_Name()<<endl;
-        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << " Coach: " << V.getCoach_Name()<< endl;
-        cout << "\n--------------------------------------------"<<endl;
-        cout << "|" << endl; cout << "|" << endl; cout << "|" << endl; 
-        
+        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << "\tCoach: " << H.getCoach_Name()<<endl;
+        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << "\tCoach: " << V.getCoach_Name()<< endl;
+        cout << "\n---------------------------------------------------"<<endl;
+        cout << "\t\t\t\t\t" <<getClockMin() <<" : "<<getClockSec()<<endl;
+        cout << "HOME: " <<H.getScore()<< "\t\t\t\t\t\t\t\t\tVISITOR: " <<V.getScore()<<endl;
+        cout <<"\t\t\t\t\t QTR: " <<getQuarter() <<endl;
+        cout <<"\t\t" <<getDown() <<" DOWN\t\t\t\t\t"<< getToGo()<< " TOGO\n" << endl; 
+        if(getPos() == true)
+          cout << "\t\t\t * HOME HAS POSESSION *\n";
+        else 
+          cout << "\t\t\t * VISITOR HAS POSESSION *\n";
+        cout << "---------------------------------------------------"<<endl;
       }
 
 };

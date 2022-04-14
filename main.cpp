@@ -22,7 +22,8 @@ int main()
   int newQuarter = 0;
   int newDown = 0;
   int newToGo = 0; 
-  double newClock = 0.0;
+  int newClockMin = 0;
+  int newClockSec = 0; 
 
   tOne.setHome_Status(true); //tOne is the Home Team now   
 
@@ -156,9 +157,13 @@ int main()
       else if (userChoice == "K" || userChoice == "k")
       {
         cout << "\n****Update Clock Module****"<<endl;
-        cout << "Please enter the new time: ";
-        newClock = validateDouble(newClock);
-        s.setClock(newClock);
+        cout << "Please enter the new time (minutes): ";
+        newClockMin = validateInt(newClockMin);
+        s.setClockMin(newClockMin);
+        cout << "Please enter the new time (seconds): ";
+        newClockSec = validateInt(newClockSec);
+        s.setClockSec(newClockSec);
+        
       }
       else if(userChoice == "X" || userChoice == "x")
       {
