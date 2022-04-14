@@ -138,15 +138,15 @@ class Scoreboard
     void showScoreboard()
       {
         
-        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << "\tCoach: " << H.getCoach_Name()<<endl;
-        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << "\tCoach: " << V.getCoach_Name()<< endl;
+        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << "\t Coach: " << H.getCoach_Name()<<endl;
+        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << "\t Coach: " << V.getCoach_Name()<< endl;
         cout << "\n---------------------------------------------------"<<endl;
-        cout << "\t\t\t\t\t" <<getClockMin() <<" : "<<getClockSec()<<endl;
-        cout << "HOME: " <<H.getScore()<< "\t\t\t\t\t\t\t\t\tVISITOR: " <<V.getScore()<<endl;
-        cout <<"\t\t\t\t\t QTR: " <<getQuarter() <<endl;
-        cout <<"\t\t" <<getDown() <<" DOWN\t\t\t\t\t"<< getToGo()<< " TOGO\n" << endl; 
+        cout << "\t\t\t\t\t  " <<getClockMin() <<" : "<<getClockSec()<<endl;
+        cout << "HOME: " <<H.getScore()<< "\t\t\t\t\t\t\t\t   VISITOR: " <<V.getScore()<<endl;
+        cout <<"\t\t\t\t\t   QTR: " <<getQuarter() <<endl;
+        cout <<"\t\t  " <<getDown() <<" DOWN\t\t\t\t  "<< getToGo()<< " TOGO\n" << endl; 
         if(getPos() == true)
-          cout << "\t\t\t * HOME HAS POSESSION *\n";
+          cout << "\t\t\t   * HOME HAS POSESSION *\n";
         else 
           cout << "\t\t\t * VISITOR HAS POSESSION *\n";
         cout << "---------------------------------------------------"<<endl;

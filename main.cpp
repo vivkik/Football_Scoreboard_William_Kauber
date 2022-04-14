@@ -17,6 +17,7 @@ int main()
   string userChoice = ""; 
   string newCoachName = ""; 
   string newCity = "";
+  string newPos = "";
   int homeTeamQuestion = 0; 
   int newScore = 0; 
   int newQuarter = 0;
@@ -48,7 +49,7 @@ int main()
       cout<<"I = Update Down Count" << endl;
       cout<<"J = Update To Go Count" << endl;
       cout<<"K = Update Clock" << endl; 
-
+      cout <<"L = Update Posession" <<endl;
     cout << "X = Exit" << endl;      cout << ">"; 
     
       cin >> userChoice; 
@@ -163,6 +164,18 @@ int main()
         cout << "Please enter the new time (seconds): ";
         newClockSec = validateInt(newClockSec);
         s.setClockSec(newClockSec);
+      else if (userChoice == "L" || userChoice == "l")
+      {
+        cout <<"\n****Update Posession Module****"<<endl;
+        cout <<"Who has Posession? (Home = H) (Visitor = V)"
+        newPos = validateString(newPos);
+        if (newPos == "H"|| newPos = "h")
+        { s.setPos(true);}
+        else if (newPos == "V" || newPos== "v")
+        { s.setPos(false);}
+        else
+        { cout<<"\nInvalid Input"<<endl;}
+      }
         
       }
       else if(userChoice == "X" || userChoice == "x")
