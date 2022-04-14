@@ -16,6 +16,7 @@ int main()
   string newName = ""; 
   string userChoice = ""; 
   string newCoachName = ""; 
+  string newCity = "";
   int homeTeamQuestion = 0; 
   int newScore = 0; 
   int newQuarter = 0;
@@ -26,8 +27,7 @@ int main()
   tOne.setHome_Status(true); //tOne is the Home Team now   
 
   //add some initial data to s
-  s.setHome(tOne); 
-  s.setVisitor(tTwo); 
+ 
   
  
   
@@ -36,12 +36,12 @@ int main()
       system("clear"); //clear the screen of previous content 
       s.showScoreboard(); //show the current scoreboard data
       //menu choices 
-      cout << "A = Update Home Team Name" << endl; 
+      cout << "\nA = Update Home Team" << endl; 
       cout << "B = Update Home Team Score" << endl; 
       cout << "C = Update Home Coach" << endl; 
       cout << "D = Update Home Status" << endl; 
-      cout<< "E = Update Visiting Team Score" << endl;
-      cout<<"F = Update Visiting Team Name" << endl;
+      cout<< "E = Update Visiting Team" << endl;
+      cout<<"F = Update Visiting Team Score" << endl;
       cout<<"G = Update Visiting Team Coach" << endl;
       cout<<"H = Update Quarter" << endl;
       cout<<"I = Update Down Count" << endl;
@@ -54,16 +54,19 @@ int main()
 
       if(userChoice == "A" || userChoice == "a")//Update Home Team Score 
       {
-        cout << "****Update Home Team Name module*** " << endl; 
+        cout << "****Update Home Team module*** " << endl; 
         cout << "\nPlease enter a new name for the home team: ";
-        cin >> newName; 
+        newName = validateString(newName);
         tOne.setName(newName); 
+        cout << "\nPlease enter the Team's City: ";
+        newCity =validateString(newCity);
+        tOne.setHome_City(newCity);
       }
       else if(userChoice == "B" || userChoice == "b")
       {
         cout << "\nUpdate Home Score Module****" << endl; 
         cout << "\nPlease enter a new score for the home team: "; 
-        cin >> newScore; 
+        newScore = validateInt(newScore);
         tOne.setScore(newScore);         
       }
 
@@ -71,7 +74,7 @@ int main()
       {
           cout << "\nUpdate Home Coach Module****" << endl; 
           cout << "\nPlease enter the home coach Name: "; 
-          cin >> newCoachName; 
+          newCoachName = validateString(newCoachName);
           tOne.setCoach_Name(newCoachName); 
       }
       
@@ -102,29 +105,31 @@ int main()
       
         cout << "****Update Visitor Team Name module*** " << endl; 
         cout << "\nPlease enter a new name for the visitor team: ";
-        cin >> newName; 
-       
+        newName = validateString(newName);
         tTwo.setName(newName); 
+        cout << "\nPlease enter the Team's City";
+        newCity = validateString(newCity);
+        tTwo.setHome_City(newCity);
       }
       else if(userChoice == "F" || userChoice == "f")
       {
         cout << "\nUpdate Visitor Score Module****" << endl; 
         cout << "\nPlease enter a new score for the visitor team: "; 
-        cin >> newScore; 
+        newScore = validateInt(newScore);
         tTwo.setScore(newScore);         
       }
       else if(userChoice == "G" || userChoice == "g")
       {
-          cout << "\nUpdate Visitor Coach Module****" << endl; 
-          cout << "\nPlease enter the visitor coach Name: "; 
-          cin >> newCoachName; 
+        cout << "\nUpdate Visitor Coach Module****" << endl; 
+        cout << "\nPlease enter the visitor coach Name: "; 
+        newCoachName = validateString(newCoachName);
         tTwo.setCoach_Name(newCoachName); 
       }
       else if(userChoice == "H" || userChoice == "h")
       {
         cout << "\n****Update Quarter Module****" << endl;
         cout << "\n Please enter the Quarter: ";
-        cin >> newQuarter;
+        newQuarter = validateInt(newQuarter);
           if (newQuarter >0 && newQuarter < 5)
           {
             s.setQuarter(newQuarter);
@@ -138,21 +143,21 @@ int main()
       {
         cout << "\n****Update Down Count Module****"<< endl;
         cout << "\n Please Enter the Down Count: ";
-        cin >> newDown; 
+        newDown = validateInt(newDown);
         s.setDown(newDown);
       }
       else if (userChoice == "J" || userChoice == "j")
       {
         cout << "\n****Update To Go Count Module****"<< endl;
         cout << "\n Please enter the To Go count: ";
-        cin >> newToGo;
+        newToGo = validateInt(newToGo);
         s.setToGo(newToGo);
       }
       else if (userChoice == "K" || userChoice == "k")
       {
         cout << "\n****Update Clock Module****"<<endl;
         cout << "Please enter the new time: ";
-        cin >> newClock;
+        newClock = validateDouble(newClock);
         s.setClock(newClock);
       }
       else if(userChoice == "X" || userChoice == "x")
@@ -165,8 +170,8 @@ int main()
         sleep(2); //wait two seconds, go to the next process 
       }
 
-      s.setHome(tOne); //refresh the data in s to the new updates...
-      s.setVisitor(tTwo); //refresh the data
+      s.setH(tOne); //refresh the data in s to the new updates...
+      s.setV(tTwo); //refresh the data
 
   
   }while(userChoice != "X" && userChoice != "x");

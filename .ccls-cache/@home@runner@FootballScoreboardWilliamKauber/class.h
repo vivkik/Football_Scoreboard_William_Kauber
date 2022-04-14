@@ -33,7 +33,7 @@ class Team
     void setScore(int s)
       { Score = s;}
     
-    void setTimeout_count(int tC) 
+    void setTimeout_Count(int tC) 
       { Timeout_Count = tC;}
     
     // Getter Member Functions 
@@ -66,8 +66,8 @@ class Scoreboard
     int ToGo;
     double Clock;
     bool Pos; // Posession 
-    Team Home; 
-    Team Visitor; 
+    Team H; 
+    Team V; 
 
   public: 
     Scoreboard()
@@ -76,7 +76,20 @@ class Scoreboard
         Down = 0;
         ToGo = 0;
         Clock =0.0;
+        H.setName("Cowboys");
+        H.setHome_City("Dallas");
+        H.setScore(0);
+        H.setCoach_Name("Mike McCarthy");
+        H.setHome_Status(true);
+        V.setName("Rams");
+        V.setHome_City("LA");
+        V.setScore(0);
+        V.setCoach_Name("Sean McVay");
       }
+
+
+
+
     void setQuarter(int q) 
       { Quarter = q; }
     void setDown(int d) 
@@ -87,10 +100,10 @@ class Scoreboard
       { Clock = c;}
     void setPos(bool p) 
       { Pos = p; }
-    void setHome(Team h)
-      {Home = h;}
-    void setVisitor(Team v)
-      {v = Visitor;}
+    void setH(Team h)
+      {H = h;}
+    void setV(Team v)
+      {V = v;}
 
     int getQuarter() const
       {return Quarter;}
@@ -102,15 +115,17 @@ class Scoreboard
       {return Clock;}
     bool getPos() const 
       {return Pos;}
-    Team getHome() 
-      const {return Home;}
-    Team getVisitor() 
-      const {return Visitor;}
+    Team getH() 
+      const {return H;}
+    Team getV() 
+      const {return V;}
     void showScoreboard()
       {
         
-        cout << "Home Team: " << Home.getHome_City() <<" " <<     Home.getName() << " Coach: " << Home.getCoach_Name()<<endl;
-        cout << "Visiting Team: " << Visitor.getHome_City() << " "<< Visitor.getName() << " Coach: " << Visitor.getCoach_Name()<< endl;
+        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << " Coach: " << H.getCoach_Name()<<endl;
+        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << " Coach: " << V.getCoach_Name()<< endl;
+        cout << "\n--------------------------------------------"<<endl;
+        cout << "|" << endl; cout << "|" << endl; cout << "|" << endl; 
         
       }
 
