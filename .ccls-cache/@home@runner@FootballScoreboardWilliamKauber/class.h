@@ -16,6 +16,15 @@ class Team
     int Timeout_Count;
   
   public:
+    Team()
+    {
+      Name = "";
+      Coach_Name ="";
+      Home_City = "";
+      Home_Status = true;
+      Score = 0;
+      Timeout_Count = 0;
+    }
 
     //Setter Member Functions 
     void setName(string n) 
