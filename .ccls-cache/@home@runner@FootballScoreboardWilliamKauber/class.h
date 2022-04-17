@@ -138,18 +138,18 @@ class Scoreboard
     void showScoreboard()
       {
         
-        cout << "Home Team: " << H.getHome_City() <<" " <<     H.getName() << "\t Coach: " << H.getCoach_Name()<<endl;
-        cout << "Visiting Team: " << V.getHome_City() << " "<< V.getName() << "\t Coach: " << V.getCoach_Name()<< endl;
-        cout << "\n---------------------------------------------------"<<endl;
+        cout << "\x1b[31;1mHome Team:\x1b[0m " << H.getHome_City() <<" " <<     H.getName() << "\t \x1b[31;1mCoach:\x1b[0m " << H.getCoach_Name()<<endl;
+        cout << "\x1b[34;1mVisiting Team:\x1b[0m " << V.getHome_City() << " "<< V.getName() << "\t \x1b[34;1mCoach:\x1b[0m " << V.getCoach_Name()<< endl;
+        cout << "\n\x1b[42;1m---------------------------------------------------\x1b[0m\n"<<endl;
         cout << "\t\t\t\t\t  " <<getClockMin() <<" : "<<getClockSec()<<endl;
         cout << "HOME: " <<H.getScore()<< "\t\t\t\t\t\t\t\t   VISITOR: " <<V.getScore()<<endl;
         cout <<"\t\t\t\t\t   QTR: " <<getQuarter() <<endl;
         cout <<"\t\t  " <<getDown() <<" DOWN\t\t\t\t  "<< getToGo()<< " TOGO\n" << endl; 
         if(getPos() == true)
-          cout << "\t\t\t   * HOME HAS POSESSION *\n";
+          cout << "\t\t\t   \x1b[31;1m* HOME HAS POSESSION *\x1b[0m\n\n";
         else 
-          cout << "\t\t\t * VISITOR HAS POSESSION *\n";
-        cout << "---------------------------------------------------"<<endl;
+          cout << "\t\t\t \x1b[34;1m* VISITOR HAS POSESSION *\x1b[0m\n\n";
+        cout << "\x1b[42;1m---------------------------------------------------\x1b[0m"<<endl;
       }
 
 };
